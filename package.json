@@ -1,0 +1,25 @@
+{
+  "name": "learning-typescript",
+  "version": "0.0.1",
+  "description": "A code-along repository from the Understanding Typescript course.",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earthnoob/learning-typescript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Johnathan Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/earthnoob/learning-typescript/issues"
+  },
+  "homepage": "https://github.com/earthnoob/learning-typescript#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
