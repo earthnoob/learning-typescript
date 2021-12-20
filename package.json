@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server",
-    "compile": "tsc app.ts"
+    "compile": "tsc app.ts",
+    "watch": "tsc app.ts --watch"
   },
   "repository": {
     "type": "git",

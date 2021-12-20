@@ -1,1 +1,3 @@
-console.log('Typescript goes here...');
+const userName = 'John';
+
+console.log(userName);
