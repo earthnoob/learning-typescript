@@ -1,16 +1,19 @@
-let appId = 'abc';
-const button = document.querySelector('button')!;
+const userName = "John";
+// userName = "Johnathan";
 
-function add(n1: number, n2: number) {
-  if (n1 + n2 > 0) {
-    return n1 + n2;
-  }
-  return;
+let age = 30;
+age = 29;
+
+function add(a: number, b: number) {
+  let result;
+  result = a + b;
+  return result;
 }
 
-function clickHandler(message: string) {
-  console.log('Clicked!', message);
-}
+// if (age > 20) {
+//   let isOld = true;
+// }
 
-// A comment
-button.addEventListener('click', clickHandler.bind(null, "You're welcome!"))
+// console.log(isOld);
+// console.log(result);
+
