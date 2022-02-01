@@ -1,122 +1,15 @@
-abstract class Department {
-  // private id: string;
-  // private name: string;
-  static fiscalYear = 2022;
-  protected employees: string[] = [];
+interface Person {
+  name: string;
+  age: number;
 
-  constructor(protected readonly id: string, private name: string) {
-    this.id = id;
-    this.name = name;
+  greet(phrase: string): void;
+};
+
+let john: Person;
+john = {
+  name: 'John',
+  age: 20,
+  greet(phrase) {
+    console.log(phrase, this.name);
   }
-
-  static createEmployee(name: string): { name: string } {
-    return { name };
-  }
-
-  abstract describe(this: Department): void/*  {
-    console.log(`Department (${this.id}): ${this.name}`);
-  } */
-
-  addEmployee(employee: string) {
-    // this.id = 'd2';
-    this.employees.push(employee);
-  }
-
-  printEmployeeInformation() {
-    console.log(this.employees.length);
-    console.log(this.employees);
-  }
-}
-
-class ITDepartment extends Department {
-  constructor(id: string, public admins: string[]) {
-    super(id, 'IT');
-    this.admins = admins;
-  }
-
-  describe(): void {
-    console.log("IT Department - ID:", this.id);
-  }
-}
-class AccountingDepartment extends Department {
-  private lastReport: string;
-  private static instance: AccountingDepartment;
-
-  static getInstance(): AccountingDepartment {
-    if (!this.instance) {
-      this.instance = new AccountingDepartment('d2', []);
-    }
-    return this.instance;
-  }
-  
-  get mostRecentReport() {
-    if (!this.lastReport) {
-      throw new Error('No reports found.');
-    }
-    return this.lastReport;
-  }
-  
-  set mostRecentReport(value: string) {
-    if (!value) {
-      throw new Error("Please enter a valid report!");
-    }
-    this.addReport(value);
-  }
-  
-  private constructor(id: string, private reports: string[]) {
-    super(id, 'IT');
-    this.lastReport = reports[0];
-  }
-  
-  addEmployee(employee: string): void {
-    if (employee === 'Max') {
-      return;
-    }
-    
-    this.employees.push(employee);
-  }
-  
-  addReport(report: string) {
-    this.reports.push(report);
-    this.lastReport = report;
-  }
-  
-  printReports() {
-    console.log(this.reports);
-  }
-  
-  describe(): void {
-    console.log("Accounting Department - ID:", this.id);
-  }
-}
-
-const it = new ITDepartment('d1', ['John']);
-console.log(it);
-
-const employee1 = Department.createEmployee('Max');
-console.log(employee1, Department.fiscalYear);
-
-// const itCopy = { name: 'Dummy', describe: it.describe };
-// itCopy.describe();
-
-it.addEmployee('Max');
-it.addEmployee('Manu');
-
-// it.employees[2] = 'Anna';
-
-it.describe();
-it.printEmployeeInformation();
-
-// const accounting = new AccountingDepartment('d2', []);
-const accounting = AccountingDepartment.getInstance();
-const accounting2 = AccountingDepartment.getInstance();
-console.log(accounting, accounting2);
-
-accounting.mostRecentReport = 'Year End Report';
-accounting.addReport('Something went wrong...');
-console.log(accounting.mostRecentReport);
-accounting.printReports();
-
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
-accounting.printEmployeeInformation();
+};
